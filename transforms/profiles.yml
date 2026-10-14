@@ -1,0 +1,11 @@
+energy:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: energy.duckdb          # local DuckDB file = the compute engine
+      extensions:
+        - azure                    # lets DuckDB read az:// paths
+      secrets:
+        - type: azure
+          connection_string: "{{ env_var('AZURE_STORAGE_CONNECTION_STRING') }}"  # auth to your lake

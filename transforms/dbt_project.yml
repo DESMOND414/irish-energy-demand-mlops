@@ -1,0 +1,7 @@
+name: 'energy'
+version: '1.0.0'
+profile: 'energy'
+model-paths: ["models"]
+models:
+  energy:
+    +materialized: table

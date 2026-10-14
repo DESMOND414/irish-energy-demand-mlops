@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: mart_demand_hourly
+    description: "Hourly Irish electricity demand joined with weather + calendar features."
+    columns:
+      - name: ts_hour
+        tests: [not_null, unique]     # one row per hour, never missing
+      - name: demand_mw
+        tests: [not_null]             # demand must always be present
