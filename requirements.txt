@@ -1,0 +1,17 @@
+pandas
+pyarrow
+requests
+python-dotenv
+holidays
+scikit-learn
+xgboost
+lightgbm
+mlflow
+fastapi
+uvicorn[standard]
+great-expectations
+evidently
+dbt-duckdb
+duckdb
+azure-storage-blob
+matplotlib
