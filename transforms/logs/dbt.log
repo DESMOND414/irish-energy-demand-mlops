@@ -1,0 +1,1190 @@
+[0m17:02:18.538124 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dbf80e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b5333b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e6cecf0>]}
+
+
+============================== 17:02:18.540647 | d8306275-c130-46f1-87bc-ff5ac1a2acca ==============================
+[0m17:02:18.540647 [info ] [MainThread]: Running with dbt=1.12.5
+[0m17:02:18.540946 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'invocation_command': 'dbt build --profiles-dir .', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'profiles_dir': '.', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'static_parser': 'True', 'version_check': 'True', 'indirect_selection': 'eager', 'quiet': 'False', 'cache_selected_only': 'False', 'log_path': '/Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/logs', 'printer_width': '80', 'empty': 'False', 'introspect': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'maximum_seed_size_mib': '1', 'write_json': 'True', 'use_colors': 'True', 'hints_enabled': 'True', 'log_format': 'default', 'no_print': 'None'}
+[0m17:02:19.221709 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e807530>]}
+[0m17:02:19.250357 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e993080>]}
+[0m17:02:19.251839 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m17:02:19.455145 [debug] [MainThread]: checksum: 87fc09d9eb7a5f06541b19d16621537041caf32e964a393a3d139fa3f1564b98, vars: {}, profile: energy, target: dev, version: 1.12.5
+[0m17:02:19.455571 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m17:02:19.455753 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e804980>]}
+[0m17:02:20.112796 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ee6d100>]}
+[0m17:02:20.155965 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/manifest.json
+[0m17:02:20.157712 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/semantic_manifest.json
+[0m17:02:20.169468 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/osi_document.json
+[0m17:02:20.186228 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f2253d0>]}
+[0m17:02:20.186440 [info ] [MainThread]: Found 3 models, 3 data tests, 500 macros
+[0m17:02:20.187397 [info ] [MainThread]: 
+[0m17:02:20.187565 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m17:02:20.187687 [info ] [MainThread]: 
+[0m17:02:20.187905 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:02:20.189978 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_energy'
+[0m17:02:20.228721 [debug] [ThreadPool]: Using duckdb connection "list_energy"
+[0m17:02:20.228885 [debug] [ThreadPool]: On list_energy: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "list_energy"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"energy"'
+    
+  
+  
+[0m17:02:20.229018 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:02:27.578645 [debug] [ThreadPool]: SQL status: OK in 7.350 seconds
+[0m17:02:27.580270 [debug] [ThreadPool]: On list_energy: Close
+[0m17:02:27.581004 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_energy, now create_energy_main)
+[0m17:02:27.581461 [debug] [ThreadPool]: Creating schema "database: "energy"
+schema: "main"
+"
+[0m17:02:27.588503 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:02:27.588799 [debug] [ThreadPool]: On create_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "create_energy_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='energy'
+        and type != 'duckdb'
+    
+  
+[0m17:02:27.589029 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:02:27.589767 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:02:27.590849 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:02:27.591067 [debug] [ThreadPool]: On create_energy_main: BEGIN
+[0m17:02:27.591341 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:02:27.591514 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:02:27.591690 [debug] [ThreadPool]: On create_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "create_energy_main"} */
+
+    
+    
+        create schema if not exists "energy"."main"
+    
+[0m17:02:27.592003 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:02:27.592578 [debug] [ThreadPool]: On create_energy_main: COMMIT
+[0m17:02:27.592773 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:02:27.592948 [debug] [ThreadPool]: On create_energy_main: COMMIT
+[0m17:02:27.593205 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:02:27.593382 [debug] [ThreadPool]: On create_energy_main: Close
+[0m17:02:27.594285 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_energy_main, now list_energy_main)
+[0m17:02:27.597850 [debug] [ThreadPool]: Using duckdb connection "list_energy_main"
+[0m17:02:27.598112 [debug] [ThreadPool]: On list_energy_main: BEGIN
+[0m17:02:27.598307 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:02:27.598628 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:02:27.598829 [debug] [ThreadPool]: Using duckdb connection "list_energy_main"
+[0m17:02:27.598995 [debug] [ThreadPool]: On list_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "list_energy_main"} */
+select
+      'energy' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'energy'
+  
+[0m17:02:27.601298 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:02:27.602176 [debug] [ThreadPool]: On list_energy_main: ROLLBACK
+[0m17:02:27.602489 [debug] [ThreadPool]: On list_energy_main: Close
+[0m17:02:27.602843 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f5814f0>]}
+[0m17:02:27.603123 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:02:27.603286 [debug] [MainThread]: On master: BEGIN
+[0m17:02:27.603437 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:02:27.603709 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:02:27.603870 [debug] [MainThread]: On master: COMMIT
+[0m17:02:27.604026 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:02:27.604177 [debug] [MainThread]: On master: COMMIT
+[0m17:02:27.604389 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:02:27.604544 [debug] [MainThread]: On master: Close
+[0m17:02:27.607897 [debug] [Thread-1 (]: Began running node model.energy.stg_demand
+[0m17:02:27.608174 [info ] [Thread-1 (]: 1 of 6 START sql table model main.stg_demand ................................... [RUN]
+[0m17:02:27.608424 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_energy_main, now model.energy.stg_demand)
+[0m17:02:27.608609 [debug] [Thread-1 (]: Began compiling node model.energy.stg_demand
+[0m17:02:27.611795 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.stg_demand"
+[0m17:02:27.612452 [debug] [Thread-1 (]: Began executing node model.energy.stg_demand
+[0m17:02:27.640341 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.stg_demand"
+[0m17:02:27.640914 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:02:27.641075 [debug] [Thread-1 (]: On model.energy.stg_demand: BEGIN
+[0m17:02:27.641212 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:02:27.641467 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:02:27.641601 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:02:27.641740 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_demand__dbt_tmp"
+  
+    
+    as (
+      -- Raw 15-minute grid demand, read straight from the Azure lake
+select
+    EffectiveTime as ts_15min,
+    demand_mw
+from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+    );
+    
+  
+[0m17:02:33.452858 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+
+LINE 14: from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+              ^
+[0m17:02:33.454075 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_demand__dbt_tmp"
+  
+    
+    as (
+      -- Raw 15-minute grid demand, read straight from the Azure lake
+select
+    EffectiveTime as ts_15min,
+    demand_mw
+from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+    );
+    
+  
+[0m17:02:33.454685 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:02:33.455169 [debug] [Thread-1 (]: On model.energy.stg_demand: ROLLBACK
+[0m17:02:33.456190 [debug] [Thread-1 (]: On model.energy.stg_demand: Close
+[0m17:02:33.466178 [debug] [Thread-1 (]: Runtime Error in model stg_demand (models/staging/stg_demand.sql)
+  Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+  
+  LINE 14: from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+                ^
+[0m17:02:33.468261 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f09e630>]}
+[0m17:02:33.468955 [error] [Thread-1 (]: 1 of 6 ERROR creating sql table model main.stg_demand .......................... [[31mERROR[0m in 5.86s]
+[0m17:02:33.469485 [debug] [Thread-1 (]: Finished running node model.energy.stg_demand
+[0m17:02:33.469825 [debug] [Thread-1 (]: Began running node model.energy.stg_weather
+[0m17:02:33.470221 [debug] [Thread-4 (]: Marking all children of 'model.energy.stg_demand' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_demand (models/staging/stg_demand.sql)
+  Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+  
+  LINE 14: from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+                ^.
+[0m17:02:33.470607 [info ] [Thread-1 (]: 2 of 6 START sql table model main.stg_weather .................................. [RUN]
+[0m17:02:33.471404 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.stg_demand, now model.energy.stg_weather)
+[0m17:02:33.471682 [debug] [Thread-1 (]: Began compiling node model.energy.stg_weather
+[0m17:02:33.472652 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.stg_weather"
+[0m17:02:33.473309 [debug] [Thread-1 (]: Began executing node model.energy.stg_weather
+[0m17:02:33.475863 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.stg_weather"
+[0m17:02:33.476373 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:02:33.476607 [debug] [Thread-1 (]: On model.energy.stg_weather: BEGIN
+[0m17:02:33.476822 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:02:33.477255 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:02:33.477466 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:02:33.477685 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_weather__dbt_tmp"
+  
+    
+    as (
+      -- Raw hourly weather, read straight from the Azure lake
+select
+    time as ts_hour,
+    temperature_2m,
+    wind_speed_10m,
+    relative_humidity_2m
+from read_parquet('az://energy-lake/bronze/weather/**/*.parquet')
+    );
+    
+  
+[0m17:02:38.938019 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+
+LINE 16: from read_parquet('az://energy-lake/bronze/weather/**/*.parquet...
+              ^
+[0m17:02:38.939290 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_weather__dbt_tmp"
+  
+    
+    as (
+      -- Raw hourly weather, read straight from the Azure lake
+select
+    time as ts_hour,
+    temperature_2m,
+    wind_speed_10m,
+    relative_humidity_2m
+from read_parquet('az://energy-lake/bronze/weather/**/*.parquet')
+    );
+    
+  
+[0m17:02:38.939696 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:02:38.940142 [debug] [Thread-1 (]: On model.energy.stg_weather: ROLLBACK
+[0m17:02:38.941441 [debug] [Thread-1 (]: On model.energy.stg_weather: Close
+[0m17:02:38.945285 [debug] [Thread-1 (]: Runtime Error in model stg_weather (models/staging/stg_weather.sql)
+  Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+  
+  LINE 16: from read_parquet('az://energy-lake/bronze/weather/**/*.parquet...
+                ^
+[0m17:02:38.945946 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd8306275-c130-46f1-87bc-ff5ac1a2acca', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f5b4440>]}
+[0m17:02:38.946789 [error] [Thread-1 (]: 2 of 6 ERROR creating sql table model main.stg_weather ......................... [[31mERROR[0m in 5.47s]
+[0m17:02:38.947389 [debug] [Thread-1 (]: Finished running node model.energy.stg_weather
+[0m17:02:38.947979 [debug] [Thread-4 (]: Marking all children of 'model.energy.stg_weather' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_weather (models/staging/stg_weather.sql)
+  Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+  
+  LINE 16: from read_parquet('az://energy-lake/bronze/weather/**/*.parquet...
+                ^.
+[0m17:02:38.948948 [debug] [Thread-1 (]: Began running node model.energy.mart_demand_hourly
+[0m17:02:38.949451 [info ] [Thread-1 (]: 3 of 6 SKIP relation main.mart_demand_hourly ................................... [[33mSKIP[0m]
+[0m17:02:38.949900 [debug] [Thread-1 (]: Finished running node model.energy.mart_demand_hourly
+[0m17:02:38.950222 [debug] [Thread-4 (]: Marking all children of 'model.energy.mart_demand_hourly' to be skipped because of status 'skipped'. 
+[0m17:02:38.950876 [debug] [Thread-1 (]: Began running node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:02:38.951289 [info ] [Thread-1 (]: 4 of 6 SKIP test not_null_mart_demand_hourly_demand_mw ......................... [[33mSKIP[0m]
+[0m17:02:38.951678 [debug] [Thread-1 (]: Finished running node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:02:38.952011 [debug] [Thread-1 (]: Began running node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:02:38.952281 [debug] [Thread-4 (]: Marking all children of 'test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0' to be skipped because of status 'skipped'. 
+[0m17:02:38.952630 [info ] [Thread-1 (]: 5 of 6 SKIP test not_null_mart_demand_hourly_ts_hour ........................... [[33mSKIP[0m]
+[0m17:02:38.953089 [debug] [Thread-1 (]: Finished running node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:02:38.953431 [debug] [Thread-1 (]: Began running node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:02:38.953707 [debug] [Thread-4 (]: Marking all children of 'test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4' to be skipped because of status 'skipped'. 
+[0m17:02:38.954022 [info ] [Thread-1 (]: 6 of 6 SKIP test unique_mart_demand_hourly_ts_hour ............................. [[33mSKIP[0m]
+[0m17:02:38.954445 [debug] [Thread-1 (]: Finished running node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:02:38.954714 [debug] [Thread-4 (]: Marking all children of 'test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a' to be skipped because of status 'skipped'. 
+[0m17:02:38.955581 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:02:38.955836 [debug] [MainThread]: On master: BEGIN
+[0m17:02:38.956039 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:02:38.956618 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:02:38.956836 [debug] [MainThread]: On master: COMMIT
+[0m17:02:38.957043 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:02:38.957235 [debug] [MainThread]: On master: COMMIT
+[0m17:02:38.957534 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:02:38.957736 [debug] [MainThread]: On master: Close
+[0m17:02:38.958042 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:02:38.958238 [debug] [MainThread]: Connection 'model.energy.stg_weather' was properly closed.
+[0m17:02:38.958534 [info ] [MainThread]: 
+[0m17:02:38.958771 [info ] [MainThread]: Finished running 3 table models, 3 data tests in 0 hours 0 minutes and 18.77 seconds (18.77s).
+[0m17:02:38.959497 [debug] [MainThread]: Command end result
+[0m17:02:38.985205 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/manifest.json
+[0m17:02:38.987610 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/semantic_manifest.json
+[0m17:02:38.989666 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/osi_document.json
+[0m17:02:38.994106 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/run_results.json
+[0m17:02:38.994295 [info ] [MainThread]: 
+[0m17:02:38.994509 [info ] [MainThread]: [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m17:02:38.994662 [info ] [MainThread]: 
+[0m17:02:38.994869 [error] [MainThread]: [[31mERROR[0m]: in model stg_demand (models/staging/stg_demand.sql)
+[0m17:02:38.995358 [error] [MainThread]:   Runtime Error in model stg_demand (models/staging/stg_demand.sql)
+  Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+  
+  LINE 14: from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+                ^
+[0m17:02:38.995575 [info ] [MainThread]: 
+[0m17:02:38.995823 [info ] [MainThread]:   compiled code at target/compiled/energy/models/staging/stg_demand.sql
+[0m17:02:38.996054 [info ] [MainThread]: 
+[0m17:02:38.996367 [error] [MainThread]: [[31mERROR[0m]: in model stg_weather (models/staging/stg_weather.sql)
+[0m17:02:38.996639 [error] [MainThread]:   Runtime Error in model stg_weather (models/staging/stg_weather.sql)
+  Fail to get a new connection for: ://. URL using bad/illegal format or missing URL
+  
+  LINE 16: from read_parquet('az://energy-lake/bronze/weather/**/*.parquet...
+                ^
+[0m17:02:38.996806 [info ] [MainThread]: 
+[0m17:02:38.996979 [info ] [MainThread]:   compiled code at target/compiled/energy/models/staging/stg_weather.sql
+[0m17:02:38.997117 [info ] [MainThread]: 
+[0m17:02:38.997312 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=2 SKIP=4 NO-OP=0 REUSED=0 TOTAL=6
+[0m17:02:39.159801 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 20.67476, "process_in_blocks": "0", "process_kernel_time": 0.390957, "process_mem_max_rss": "212697088", "process_out_blocks": "0", "process_user_time": 2.070552}
+[0m17:02:39.161001 [debug] [MainThread]: Command `dbt build` failed at 17:02:39.160818 after 20.68 seconds
+[0m17:02:39.161701 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d8c58b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ee03e60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e992ba0>]}
+[0m17:02:39.162290 [debug] [MainThread]: Flushing usage events
+[0m17:02:40.104957 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:09:02.556187 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a5929f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b745070>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a534050>]}
+
+
+============================== 17:09:02.558830 | 3b00ddb8-05aa-4bde-9614-4b5cf54dbedc ==============================
+[0m17:09:02.558830 [info ] [MainThread]: Running with dbt=1.12.5
+[0m17:09:02.559143 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'version_check': 'True', 'profiles_dir': '.', 'introspect': 'True', 'invocation_command': 'dbt build --profiles-dir .', 'hints_enabled': 'True', 'maximum_seed_size_mib': '1', 'log_path': '/Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/logs', 'quiet': 'False', 'target_path': 'None', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'debug': 'False', 'fail_fast': 'False', 'write_json': 'True', 'empty': 'False', 'static_parser': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m17:09:02.780233 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b814ce0>]}
+[0m17:09:02.808381 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a61a990>]}
+[0m17:09:02.810146 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m17:09:02.870241 [debug] [MainThread]: checksum: 87fc09d9eb7a5f06541b19d16621537041caf32e964a393a3d139fa3f1564b98, vars: {}, profile: energy, target: dev, version: 1.12.5
+[0m17:09:02.940365 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m17:09:02.940579 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m17:09:02.940702 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m17:09:02.945419 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ba4abd0>]}
+[0m17:09:03.000801 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/manifest.json
+[0m17:09:03.002896 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/semantic_manifest.json
+[0m17:09:03.014606 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/osi_document.json
+[0m17:09:03.054864 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bdb2900>]}
+[0m17:09:03.055155 [info ] [MainThread]: Found 3 models, 3 data tests, 500 macros
+[0m17:09:03.056198 [info ] [MainThread]: 
+[0m17:09:03.056375 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m17:09:03.056507 [info ] [MainThread]: 
+[0m17:09:03.056749 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:09:03.058902 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_energy'
+[0m17:09:03.091608 [debug] [ThreadPool]: Using duckdb connection "list_energy"
+[0m17:09:03.091791 [debug] [ThreadPool]: On list_energy: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "list_energy"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"energy"'
+    
+  
+  
+[0m17:09:03.091929 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:09:03.141548 [debug] [ThreadPool]: SQL status: OK in 0.050 seconds
+[0m17:09:03.142537 [debug] [ThreadPool]: On list_energy: Close
+[0m17:09:03.142916 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_energy, now create_energy_main)
+[0m17:09:03.143125 [debug] [ThreadPool]: Creating schema "database: "energy"
+schema: "main"
+"
+[0m17:09:03.146724 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:09:03.146870 [debug] [ThreadPool]: On create_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "create_energy_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='energy'
+        and type != 'duckdb'
+    
+  
+[0m17:09:03.146983 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:09:03.147689 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:09:03.148396 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:09:03.148513 [debug] [ThreadPool]: On create_energy_main: BEGIN
+[0m17:09:03.148702 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:09:03.148854 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:09:03.148979 [debug] [ThreadPool]: On create_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "create_energy_main"} */
+
+    
+    
+        create schema if not exists "energy"."main"
+    
+[0m17:09:03.149383 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:09:03.149799 [debug] [ThreadPool]: On create_energy_main: COMMIT
+[0m17:09:03.149937 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:09:03.150044 [debug] [ThreadPool]: On create_energy_main: COMMIT
+[0m17:09:03.150222 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:09:03.150342 [debug] [ThreadPool]: On create_energy_main: Close
+[0m17:09:03.150955 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_energy_main, now list_energy_main)
+[0m17:09:03.153004 [debug] [ThreadPool]: Using duckdb connection "list_energy_main"
+[0m17:09:03.153135 [debug] [ThreadPool]: On list_energy_main: BEGIN
+[0m17:09:03.153238 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:09:03.153427 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:09:03.153537 [debug] [ThreadPool]: Using duckdb connection "list_energy_main"
+[0m17:09:03.153654 [debug] [ThreadPool]: On list_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "list_energy_main"} */
+select
+      'energy' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'energy'
+  
+[0m17:09:03.155988 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:09:03.156668 [debug] [ThreadPool]: On list_energy_main: ROLLBACK
+[0m17:09:03.156847 [debug] [ThreadPool]: On list_energy_main: Close
+[0m17:09:03.157077 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b38170>]}
+[0m17:09:03.157270 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:09:03.157380 [debug] [MainThread]: On master: BEGIN
+[0m17:09:03.157473 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:09:03.157639 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:09:03.157747 [debug] [MainThread]: On master: COMMIT
+[0m17:09:03.157849 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:09:03.157949 [debug] [MainThread]: On master: COMMIT
+[0m17:09:03.158125 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:09:03.158287 [debug] [MainThread]: On master: Close
+[0m17:09:03.159705 [debug] [Thread-1 (]: Began running node model.energy.stg_demand
+[0m17:09:03.159927 [info ] [Thread-1 (]: 1 of 6 START sql table model main.stg_demand ................................... [RUN]
+[0m17:09:03.160129 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_energy_main, now model.energy.stg_demand)
+[0m17:09:03.160272 [debug] [Thread-1 (]: Began compiling node model.energy.stg_demand
+[0m17:09:03.162538 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.stg_demand"
+[0m17:09:03.162853 [debug] [Thread-1 (]: Began executing node model.energy.stg_demand
+[0m17:09:03.185760 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.stg_demand"
+[0m17:09:03.186094 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:09:03.186242 [debug] [Thread-1 (]: On model.energy.stg_demand: BEGIN
+[0m17:09:03.186369 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:09:03.186594 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:03.186714 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:09:03.186842 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_demand__dbt_tmp"
+  
+    
+    as (
+      -- Raw 15-minute grid demand, read straight from the Azure lake
+select
+    EffectiveTime as ts_15min,
+    demand_mw
+from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+    );
+    
+  
+[0m17:09:04.392884 [debug] [Thread-1 (]: SQL status: OK in 1.206 seconds
+[0m17:09:04.396583 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:09:04.396764 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+alter table "energy"."main"."stg_demand__dbt_tmp" rename to "stg_demand"
+[0m17:09:04.397853 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:09:04.404851 [debug] [Thread-1 (]: On model.energy.stg_demand: COMMIT
+[0m17:09:04.405027 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:09:04.405166 [debug] [Thread-1 (]: On model.energy.stg_demand: COMMIT
+[0m17:09:04.406968 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m17:09:04.408989 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:09:04.409138 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+      drop table if exists "energy"."main"."stg_demand__dbt_backup" cascade
+    
+[0m17:09:04.409379 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:04.410439 [debug] [Thread-1 (]: On model.energy.stg_demand: Close
+[0m17:09:04.411465 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c2041d0>]}
+[0m17:09:04.411742 [info ] [Thread-1 (]: 1 of 6 OK created sql table model main.stg_demand .............................. [[32mOK[0m in 1.25s]
+[0m17:09:04.412005 [debug] [Thread-1 (]: Finished running node model.energy.stg_demand
+[0m17:09:04.412178 [debug] [Thread-1 (]: Began running node model.energy.stg_weather
+[0m17:09:04.412403 [info ] [Thread-1 (]: 2 of 6 START sql table model main.stg_weather .................................. [RUN]
+[0m17:09:04.412608 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.stg_demand, now model.energy.stg_weather)
+[0m17:09:04.412751 [debug] [Thread-1 (]: Began compiling node model.energy.stg_weather
+[0m17:09:04.413140 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.stg_weather"
+[0m17:09:04.413423 [debug] [Thread-1 (]: Began executing node model.energy.stg_weather
+[0m17:09:04.414670 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.stg_weather"
+[0m17:09:04.414942 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:09:04.415077 [debug] [Thread-1 (]: On model.energy.stg_weather: BEGIN
+[0m17:09:04.415201 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:09:04.415421 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:04.415548 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:09:04.415681 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_weather__dbt_tmp"
+  
+    
+    as (
+      -- Raw hourly weather, read straight from the Azure lake
+select
+    time as ts_hour,
+    temperature_2m,
+    wind_speed_10m,
+    relative_humidity_2m
+from read_parquet('az://energy-lake/bronze/weather/**/*.parquet')
+    );
+    
+  
+[0m17:09:05.013520 [debug] [Thread-1 (]: SQL status: OK in 0.598 seconds
+[0m17:09:05.014957 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:09:05.015256 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+alter table "energy"."main"."stg_weather__dbt_tmp" rename to "stg_weather"
+[0m17:09:05.015605 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.016433 [debug] [Thread-1 (]: On model.energy.stg_weather: COMMIT
+[0m17:09:05.016585 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:09:05.016724 [debug] [Thread-1 (]: On model.energy.stg_weather: COMMIT
+[0m17:09:05.018369 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:09:05.019087 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:09:05.019240 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+      drop table if exists "energy"."main"."stg_weather__dbt_backup" cascade
+    
+[0m17:09:05.019496 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.020164 [debug] [Thread-1 (]: On model.energy.stg_weather: Close
+[0m17:09:05.020436 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1f84d0>]}
+[0m17:09:05.020715 [info ] [Thread-1 (]: 2 of 6 OK created sql table model main.stg_weather ............................. [[32mOK[0m in 0.61s]
+[0m17:09:05.020955 [debug] [Thread-1 (]: Finished running node model.energy.stg_weather
+[0m17:09:05.021282 [debug] [Thread-1 (]: Began running node model.energy.mart_demand_hourly
+[0m17:09:05.021499 [info ] [Thread-1 (]: 3 of 6 START sql table model main.mart_demand_hourly ........................... [RUN]
+[0m17:09:05.021689 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.stg_weather, now model.energy.mart_demand_hourly)
+[0m17:09:05.021833 [debug] [Thread-1 (]: Began compiling node model.energy.mart_demand_hourly
+[0m17:09:05.022846 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.mart_demand_hourly"
+[0m17:09:05.023243 [debug] [Thread-1 (]: Began executing node model.energy.mart_demand_hourly
+[0m17:09:05.024570 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.mart_demand_hourly"
+[0m17:09:05.024911 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:09:05.025049 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: BEGIN
+[0m17:09:05.025171 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:09:05.025395 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.025521 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:09:05.025667 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+
+    
+
+    create  table
+      "energy"."main"."mart_demand_hourly__dbt_tmp"
+  
+    
+    as (
+      -- Gold mart: demand aggregated to hourly, joined to weather + calendar features
+with demand_hourly as (
+    select
+        date_trunc('hour', ts_15min) as ts_hour,   -- collapse 4x15min -> 1 hour
+        avg(demand_mw) as demand_mw                 -- mean demand that hour
+    from "energy"."main"."stg_demand"
+    group by 1
+)
+select
+    d.ts_hour,
+    d.demand_mw,
+    w.temperature_2m,
+    w.wind_speed_10m,
+    w.relative_humidity_2m,
+    extract('hour'  from d.ts_hour) as hour_of_day,   -- calendar features
+    extract('dow'   from d.ts_hour) as day_of_week,
+    extract('month' from d.ts_hour) as month
+from demand_hourly d
+left join "energy"."main"."stg_weather" w using (ts_hour)  -- align on the hour
+order by d.ts_hour
+    );
+    
+  
+[0m17:09:05.037847 [debug] [Thread-1 (]: SQL status: OK in 0.012 seconds
+[0m17:09:05.038898 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:09:05.039044 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+alter table "energy"."main"."mart_demand_hourly__dbt_tmp" rename to "mart_demand_hourly"
+[0m17:09:05.039314 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.040020 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: COMMIT
+[0m17:09:05.040164 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:09:05.040290 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: COMMIT
+[0m17:09:05.041115 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:09:05.041699 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:09:05.041827 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+
+      drop table if exists "energy"."main"."mart_demand_hourly__dbt_backup" cascade
+    
+[0m17:09:05.042031 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.042549 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: Close
+[0m17:09:05.042759 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b00ddb8-05aa-4bde-9614-4b5cf54dbedc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bc25bb0>]}
+[0m17:09:05.042987 [info ] [Thread-1 (]: 3 of 6 OK created sql table model main.mart_demand_hourly ...................... [[32mOK[0m in 0.02s]
+[0m17:09:05.043217 [debug] [Thread-1 (]: Finished running node model.energy.mart_demand_hourly
+[0m17:09:05.043507 [debug] [Thread-1 (]: Began running node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:09:05.043692 [info ] [Thread-1 (]: 4 of 6 START test not_null_mart_demand_hourly_demand_mw ........................ [RUN]
+[0m17:09:05.043897 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.mart_demand_hourly, now test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0)
+[0m17:09:05.044040 [debug] [Thread-1 (]: Began compiling node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:09:05.050184 [debug] [Thread-1 (]: Writing injected SQL for node "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:09:05.050559 [debug] [Thread-1 (]: Began executing node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:09:05.058247 [debug] [Thread-1 (]: Writing runtime sql for node "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:09:05.058650 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:09:05.058801 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: BEGIN
+[0m17:09:05.058926 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:09:05.059215 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.059350 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:09:05.059478 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select demand_mw
+from "energy"."main"."mart_demand_hourly"
+where demand_mw is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:09:05.060572 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:09:05.062097 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: ROLLBACK
+[0m17:09:05.062314 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: Close
+[0m17:09:05.062562 [error] [Thread-1 (]: 4 of 6 FAIL 2 not_null_mart_demand_hourly_demand_mw ............................ [[31mFAIL 2[0m in 0.02s]
+[0m17:09:05.062794 [debug] [Thread-1 (]: Finished running node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:09:05.062957 [debug] [Thread-1 (]: Began running node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:09:05.063145 [debug] [Thread-4 (]: Marking all children of 'test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0' to be skipped because of status 'fail'.  Reason: Got 2 results, configured to fail if != 0.
+[0m17:09:05.063293 [info ] [Thread-1 (]: 5 of 6 START test not_null_mart_demand_hourly_ts_hour .......................... [RUN]
+[0m17:09:05.063629 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0, now test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4)
+[0m17:09:05.063762 [debug] [Thread-1 (]: Began compiling node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:09:05.066701 [debug] [Thread-1 (]: Writing injected SQL for node "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:09:05.066980 [debug] [Thread-1 (]: Began executing node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:09:05.067638 [debug] [Thread-1 (]: Writing runtime sql for node "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:09:05.067895 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:09:05.068029 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: BEGIN
+[0m17:09:05.068147 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:09:05.068348 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.068473 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:09:05.068601 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select ts_hour
+from "energy"."main"."mart_demand_hourly"
+where ts_hour is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:09:05.068934 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.069568 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: ROLLBACK
+[0m17:09:05.069772 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: Close
+[0m17:09:05.070003 [info ] [Thread-1 (]: 5 of 6 PASS not_null_mart_demand_hourly_ts_hour ................................ [[32mPASS[0m in 0.01s]
+[0m17:09:05.070223 [debug] [Thread-1 (]: Finished running node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:09:05.070372 [debug] [Thread-1 (]: Began running node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:09:05.070516 [info ] [Thread-1 (]: 6 of 6 START test unique_mart_demand_hourly_ts_hour ............................ [RUN]
+[0m17:09:05.070686 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4, now test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a)
+[0m17:09:05.070817 [debug] [Thread-1 (]: Began compiling node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:09:05.074942 [debug] [Thread-1 (]: Writing injected SQL for node "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:09:05.075228 [debug] [Thread-1 (]: Began executing node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:09:05.075895 [debug] [Thread-1 (]: Writing runtime sql for node "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:09:05.076219 [debug] [Thread-1 (]: Using duckdb connection "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:09:05.076358 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: BEGIN
+[0m17:09:05.076485 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:09:05.076721 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:09:05.076849 [debug] [Thread-1 (]: Using duckdb connection "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:09:05.076991 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    ts_hour as unique_field,
+    count(*) as n_records
+
+from "energy"."main"."mart_demand_hourly"
+where ts_hour is not null
+group by ts_hour
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:09:05.078179 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:09:05.078851 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: ROLLBACK
+[0m17:09:05.079066 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: Close
+[0m17:09:05.079312 [info ] [Thread-1 (]: 6 of 6 PASS unique_mart_demand_hourly_ts_hour .................................. [[32mPASS[0m in 0.01s]
+[0m17:09:05.079551 [debug] [Thread-1 (]: Finished running node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:09:05.080084 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:09:05.080244 [debug] [MainThread]: On master: BEGIN
+[0m17:09:05.080555 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:09:05.080784 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:09:05.081003 [debug] [MainThread]: On master: COMMIT
+[0m17:09:05.081115 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:09:05.081327 [debug] [MainThread]: On master: COMMIT
+[0m17:09:05.081486 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:09:05.081614 [debug] [MainThread]: On master: Close
+[0m17:09:05.081943 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:09:05.082041 [debug] [MainThread]: Connection 'test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a' was properly closed.
+[0m17:09:05.082166 [info ] [MainThread]: 
+[0m17:09:05.082295 [info ] [MainThread]: Finished running 3 table models, 3 data tests in 0 hours 0 minutes and 2.03 seconds (2.03s).
+[0m17:09:05.082792 [debug] [MainThread]: Command end result
+[0m17:09:05.099312 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/manifest.json
+[0m17:09:05.101070 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/semantic_manifest.json
+[0m17:09:05.102477 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/osi_document.json
+[0m17:09:05.105966 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/run_results.json
+[0m17:09:05.106112 [info ] [MainThread]: 
+[0m17:09:05.106268 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m17:09:05.106396 [info ] [MainThread]: 
+[0m17:09:05.106551 [error] [MainThread]: [[31mERROR[0m]: in test not_null_mart_demand_hourly_demand_mw (models/marts/schema.yml)
+[0m17:09:05.106697 [error] [MainThread]:   Got 2 results, configured to fail if != 0
+[0m17:09:05.106805 [info ] [MainThread]: 
+[0m17:09:05.106937 [info ] [MainThread]:   compiled code at target/compiled/energy/models/marts/schema.yml/not_null_mart_demand_hourly_demand_mw.sql
+[0m17:09:05.107050 [info ] [MainThread]: 
+[0m17:09:05.107178 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=1 SKIP=0 NO-OP=0 REUSED=0 TOTAL=6
+[0m17:09:05.109119 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 2.5972269, "process_in_blocks": "0", "process_kernel_time": 0.39991, "process_mem_max_rss": "200523776", "process_out_blocks": "0", "process_user_time": 1.606531}
+[0m17:09:05.109342 [debug] [MainThread]: Command `dbt build` failed at 17:09:05.109301 after 2.60 seconds
+[0m17:09:05.109505 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072c2c30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b773ef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ba49e20>]}
+[0m17:09:05.109649 [debug] [MainThread]: Flushing usage events
+[0m17:09:05.521424 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:10:47.960439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b1c9760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c234d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094b74a0>]}
+
+
+============================== 17:10:47.963253 | 41915907-ca82-4971-9687-704e15010a96 ==============================
+[0m17:10:47.963253 [info ] [MainThread]: Running with dbt=1.12.5
+[0m17:10:47.963551 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'write_json': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt build --profiles-dir .', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'log_format': 'default', 'partial_parse': 'True', 'indirect_selection': 'eager', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '.', 'introspect': 'True', 'log_path': '/Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/logs', 'log_cache_events': 'False', 'no_print': 'None', 'static_parser': 'True', 'empty': 'False', 'printer_width': '80', 'hints_enabled': 'True'}
+[0m17:10:48.167374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b2a5ee0>]}
+[0m17:10:48.195572 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd7e5d0>]}
+[0m17:10:48.196984 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m17:10:48.257048 [debug] [MainThread]: checksum: 87fc09d9eb7a5f06541b19d16621537041caf32e964a393a3d139fa3f1564b98, vars: {}, profile: energy, target: dev, version: 1.12.5
+[0m17:10:48.325797 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m17:10:48.326131 [debug] [MainThread]: Partial parsing: updated file: energy://models/marts/mart_demand_hourly.sql
+[0m17:10:48.604082 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c28d7c0>]}
+[0m17:10:48.643894 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/manifest.json
+[0m17:10:48.645787 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/semantic_manifest.json
+[0m17:10:48.657420 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/osi_document.json
+[0m17:10:48.671063 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfb47a0>]}
+[0m17:10:48.671283 [info ] [MainThread]: Found 3 models, 3 data tests, 500 macros
+[0m17:10:48.672233 [info ] [MainThread]: 
+[0m17:10:48.672394 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m17:10:48.672513 [info ] [MainThread]: 
+[0m17:10:48.672733 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:10:48.674800 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_energy'
+[0m17:10:48.707241 [debug] [ThreadPool]: Using duckdb connection "list_energy"
+[0m17:10:48.707447 [debug] [ThreadPool]: On list_energy: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "list_energy"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"energy"'
+    
+  
+  
+[0m17:10:48.707611 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:10:48.750884 [debug] [ThreadPool]: SQL status: OK in 0.043 seconds
+[0m17:10:48.751810 [debug] [ThreadPool]: On list_energy: Close
+[0m17:10:48.752153 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_energy, now create_energy_main)
+[0m17:10:48.752348 [debug] [ThreadPool]: Creating schema "database: "energy"
+schema: "main"
+"
+[0m17:10:48.755753 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:10:48.755894 [debug] [ThreadPool]: On create_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "create_energy_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='energy'
+        and type != 'duckdb'
+    
+  
+[0m17:10:48.756004 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:10:48.756678 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:10:48.757358 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:10:48.757463 [debug] [ThreadPool]: On create_energy_main: BEGIN
+[0m17:10:48.757621 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:10:48.757723 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:10:48.757826 [debug] [ThreadPool]: On create_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "create_energy_main"} */
+
+    
+    
+        create schema if not exists "energy"."main"
+    
+[0m17:10:48.758211 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:10:48.758632 [debug] [ThreadPool]: On create_energy_main: COMMIT
+[0m17:10:48.758763 [debug] [ThreadPool]: Using duckdb connection "create_energy_main"
+[0m17:10:48.758869 [debug] [ThreadPool]: On create_energy_main: COMMIT
+[0m17:10:48.759043 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:10:48.759157 [debug] [ThreadPool]: On create_energy_main: Close
+[0m17:10:48.759674 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_energy_main, now list_energy_main)
+[0m17:10:48.761631 [debug] [ThreadPool]: Using duckdb connection "list_energy_main"
+[0m17:10:48.761760 [debug] [ThreadPool]: On list_energy_main: BEGIN
+[0m17:10:48.761860 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:10:48.762039 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:10:48.762146 [debug] [ThreadPool]: Using duckdb connection "list_energy_main"
+[0m17:10:48.762257 [debug] [ThreadPool]: On list_energy_main: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "connection_name": "list_energy_main"} */
+select
+      'energy' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'energy'
+  
+[0m17:10:48.764473 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:10:48.765153 [debug] [ThreadPool]: On list_energy_main: ROLLBACK
+[0m17:10:48.765322 [debug] [ThreadPool]: On list_energy_main: Close
+[0m17:10:48.765740 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf88c80>]}
+[0m17:10:48.765928 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:10:48.766036 [debug] [MainThread]: On master: BEGIN
+[0m17:10:48.766132 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:10:48.766299 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:10:48.766403 [debug] [MainThread]: On master: COMMIT
+[0m17:10:48.766506 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:10:48.766605 [debug] [MainThread]: On master: COMMIT
+[0m17:10:48.766772 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:10:48.766874 [debug] [MainThread]: On master: Close
+[0m17:10:48.768196 [debug] [Thread-1 (]: Began running node model.energy.stg_demand
+[0m17:10:48.768414 [info ] [Thread-1 (]: 1 of 6 START sql table model main.stg_demand ................................... [RUN]
+[0m17:10:48.768628 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_energy_main, now model.energy.stg_demand)
+[0m17:10:48.768771 [debug] [Thread-1 (]: Began compiling node model.energy.stg_demand
+[0m17:10:48.771012 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.stg_demand"
+[0m17:10:48.771310 [debug] [Thread-1 (]: Began executing node model.energy.stg_demand
+[0m17:10:48.793884 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.stg_demand"
+[0m17:10:48.794209 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:48.794349 [debug] [Thread-1 (]: On model.energy.stg_demand: BEGIN
+[0m17:10:48.794472 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:10:48.794704 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:48.794829 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:48.794956 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_demand__dbt_tmp"
+  
+    
+    as (
+      -- Raw 15-minute grid demand, read straight from the Azure lake
+select
+    EffectiveTime as ts_15min,
+    demand_mw
+from read_parquet('az://energy-lake/bronze/demand/**/*.parquet')
+    );
+    
+  
+[0m17:10:51.501853 [debug] [Thread-1 (]: SQL status: OK in 2.706 seconds
+[0m17:10:51.511545 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:51.512190 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE database_name = 'energy'
+      AND schema_name = 'main'
+      AND table_name = 'stg_demand'
+  
+[0m17:10:51.513525 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:10:51.520702 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:51.521093 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+alter table "energy"."main"."stg_demand" rename to "stg_demand__dbt_backup"
+[0m17:10:51.522915 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:10:51.524933 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:51.525209 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+alter table "energy"."main"."stg_demand__dbt_tmp" rename to "stg_demand"
+[0m17:10:51.525666 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:51.539672 [debug] [Thread-1 (]: On model.energy.stg_demand: COMMIT
+[0m17:10:51.539926 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:51.540130 [debug] [Thread-1 (]: On model.energy.stg_demand: COMMIT
+[0m17:10:51.542513 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m17:10:51.545572 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_demand"
+[0m17:10:51.545807 [debug] [Thread-1 (]: On model.energy.stg_demand: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_demand"} */
+
+      drop table if exists "energy"."main"."stg_demand__dbt_backup" cascade
+    
+[0m17:10:51.546293 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:51.547824 [debug] [Thread-1 (]: On model.energy.stg_demand: Close
+[0m17:10:51.549186 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c5f1820>]}
+[0m17:10:51.549566 [info ] [Thread-1 (]: 1 of 6 OK created sql table model main.stg_demand .............................. [[32mOK[0m in 2.78s]
+[0m17:10:51.549908 [debug] [Thread-1 (]: Finished running node model.energy.stg_demand
+[0m17:10:51.550132 [debug] [Thread-1 (]: Began running node model.energy.stg_weather
+[0m17:10:51.550420 [info ] [Thread-1 (]: 2 of 6 START sql table model main.stg_weather .................................. [RUN]
+[0m17:10:51.550665 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.stg_demand, now model.energy.stg_weather)
+[0m17:10:51.550850 [debug] [Thread-1 (]: Began compiling node model.energy.stg_weather
+[0m17:10:51.551376 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.stg_weather"
+[0m17:10:51.551734 [debug] [Thread-1 (]: Began executing node model.energy.stg_weather
+[0m17:10:51.553471 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.stg_weather"
+[0m17:10:51.553845 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:51.554036 [debug] [Thread-1 (]: On model.energy.stg_weather: BEGIN
+[0m17:10:51.554202 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:10:51.554486 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:51.554648 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:51.554817 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+    
+
+    create  table
+      "energy"."main"."stg_weather__dbt_tmp"
+  
+    
+    as (
+      -- Raw hourly weather, read straight from the Azure lake
+select
+    time as ts_hour,
+    temperature_2m,
+    wind_speed_10m,
+    relative_humidity_2m
+from read_parquet('az://energy-lake/bronze/weather/**/*.parquet')
+    );
+    
+  
+[0m17:10:52.595061 [debug] [Thread-1 (]: SQL status: OK in 1.040 seconds
+[0m17:10:52.595857 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:52.596043 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE database_name = 'energy'
+      AND schema_name = 'main'
+      AND table_name = 'stg_weather'
+  
+[0m17:10:52.596528 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.597772 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:52.597934 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+alter table "energy"."main"."stg_weather" rename to "stg_weather__dbt_backup"
+[0m17:10:52.598208 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.599100 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:52.599368 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+alter table "energy"."main"."stg_weather__dbt_tmp" rename to "stg_weather"
+[0m17:10:52.599854 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.601443 [debug] [Thread-1 (]: On model.energy.stg_weather: COMMIT
+[0m17:10:52.601707 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:52.602650 [debug] [Thread-1 (]: On model.energy.stg_weather: COMMIT
+[0m17:10:52.604173 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:10:52.604854 [debug] [Thread-1 (]: Using duckdb connection "model.energy.stg_weather"
+[0m17:10:52.605005 [debug] [Thread-1 (]: On model.energy.stg_weather: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.stg_weather"} */
+
+      drop table if exists "energy"."main"."stg_weather__dbt_backup" cascade
+    
+[0m17:10:52.605364 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.606032 [debug] [Thread-1 (]: On model.energy.stg_weather: Close
+[0m17:10:52.606319 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb22cf0>]}
+[0m17:10:52.606609 [info ] [Thread-1 (]: 2 of 6 OK created sql table model main.stg_weather ............................. [[32mOK[0m in 1.06s]
+[0m17:10:52.606863 [debug] [Thread-1 (]: Finished running node model.energy.stg_weather
+[0m17:10:52.607191 [debug] [Thread-1 (]: Began running node model.energy.mart_demand_hourly
+[0m17:10:52.607415 [info ] [Thread-1 (]: 3 of 6 START sql table model main.mart_demand_hourly ........................... [RUN]
+[0m17:10:52.607624 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.stg_weather, now model.energy.mart_demand_hourly)
+[0m17:10:52.607768 [debug] [Thread-1 (]: Began compiling node model.energy.mart_demand_hourly
+[0m17:10:52.608780 [debug] [Thread-1 (]: Writing injected SQL for node "model.energy.mart_demand_hourly"
+[0m17:10:52.609210 [debug] [Thread-1 (]: Began executing node model.energy.mart_demand_hourly
+[0m17:10:52.610599 [debug] [Thread-1 (]: Writing runtime sql for node "model.energy.mart_demand_hourly"
+[0m17:10:52.610903 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.611050 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: BEGIN
+[0m17:10:52.611185 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:10:52.611431 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.611560 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.611707 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+
+    
+
+    create  table
+      "energy"."main"."mart_demand_hourly__dbt_tmp"
+  
+    
+    as (
+      -- Gold mart: demand aggregated to hourly, joined to weather + calendar features
+with demand_hourly as (
+    select
+        date_trunc('hour', ts_15min) as ts_hour,   -- collapse 4x15min -> 1 hour
+        avg(demand_mw) as demand_mw                 -- mean demand that hour
+    from "energy"."main"."stg_demand"
+    where demand_mw is not null                     -- drop EirGrid gaps (empty readings)
+    group by 1
+)
+select
+    d.ts_hour,
+    d.demand_mw,
+    w.temperature_2m,
+    w.wind_speed_10m,
+    w.relative_humidity_2m,
+    extract('hour'  from d.ts_hour) as hour_of_day,
+    extract('dow'   from d.ts_hour) as day_of_week,
+    extract('month' from d.ts_hour) as month
+from demand_hourly d
+left join "energy"."main"."stg_weather" w using (ts_hour)
+order by d.ts_hour
+    );
+    
+  
+[0m17:10:52.625456 [debug] [Thread-1 (]: SQL status: OK in 0.014 seconds
+[0m17:10:52.626009 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.626165 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE database_name = 'energy'
+      AND schema_name = 'main'
+      AND table_name = 'mart_demand_hourly'
+  
+[0m17:10:52.626481 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.627526 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.627670 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+alter table "energy"."main"."mart_demand_hourly" rename to "mart_demand_hourly__dbt_backup"
+[0m17:10:52.627894 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.628740 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.628877 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+alter table "energy"."main"."mart_demand_hourly__dbt_tmp" rename to "mart_demand_hourly"
+[0m17:10:52.629088 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.629845 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: COMMIT
+[0m17:10:52.629981 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.630120 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: COMMIT
+[0m17:10:52.631503 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:10:52.632220 [debug] [Thread-1 (]: Using duckdb connection "model.energy.mart_demand_hourly"
+[0m17:10:52.632359 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "model.energy.mart_demand_hourly"} */
+
+      drop table if exists "energy"."main"."mart_demand_hourly__dbt_backup" cascade
+    
+[0m17:10:52.632671 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.633222 [debug] [Thread-1 (]: On model.energy.mart_demand_hourly: Close
+[0m17:10:52.633447 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '41915907-ca82-4971-9687-704e15010a96', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ca6ea80>]}
+[0m17:10:52.633692 [info ] [Thread-1 (]: 3 of 6 OK created sql table model main.mart_demand_hourly ...................... [[32mOK[0m in 0.03s]
+[0m17:10:52.633915 [debug] [Thread-1 (]: Finished running node model.energy.mart_demand_hourly
+[0m17:10:52.634204 [debug] [Thread-1 (]: Began running node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:10:52.634384 [info ] [Thread-1 (]: 4 of 6 START test not_null_mart_demand_hourly_demand_mw ........................ [RUN]
+[0m17:10:52.634576 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.energy.mart_demand_hourly, now test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0)
+[0m17:10:52.634715 [debug] [Thread-1 (]: Began compiling node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:10:52.641180 [debug] [Thread-1 (]: Writing injected SQL for node "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:10:52.641627 [debug] [Thread-1 (]: Began executing node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:10:52.649710 [debug] [Thread-1 (]: Writing runtime sql for node "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:10:52.650046 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:10:52.650200 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: BEGIN
+[0m17:10:52.650330 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:10:52.650569 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.650701 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"
+[0m17:10:52.650855 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select demand_mw
+from "energy"."main"."mart_demand_hourly"
+where demand_mw is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:10:52.651451 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.653054 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: ROLLBACK
+[0m17:10:52.653285 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0: Close
+[0m17:10:52.653542 [info ] [Thread-1 (]: 4 of 6 PASS not_null_mart_demand_hourly_demand_mw .............................. [[32mPASS[0m in 0.02s]
+[0m17:10:52.653767 [debug] [Thread-1 (]: Finished running node test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0
+[0m17:10:52.653922 [debug] [Thread-1 (]: Began running node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:10:52.654076 [info ] [Thread-1 (]: 5 of 6 START test not_null_mart_demand_hourly_ts_hour .......................... [RUN]
+[0m17:10:52.654249 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.energy.not_null_mart_demand_hourly_demand_mw.93d96b96d0, now test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4)
+[0m17:10:52.654384 [debug] [Thread-1 (]: Began compiling node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:10:52.657793 [debug] [Thread-1 (]: Writing injected SQL for node "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:10:52.658092 [debug] [Thread-1 (]: Began executing node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:10:52.658770 [debug] [Thread-1 (]: Writing runtime sql for node "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:10:52.659072 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:10:52.659211 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: BEGIN
+[0m17:10:52.659335 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:10:52.659574 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.659759 [debug] [Thread-1 (]: Using duckdb connection "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"
+[0m17:10:52.659920 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select ts_hour
+from "energy"."main"."mart_demand_hourly"
+where ts_hour is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:10:52.660287 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.660924 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: ROLLBACK
+[0m17:10:52.661123 [debug] [Thread-1 (]: On test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4: Close
+[0m17:10:52.661371 [info ] [Thread-1 (]: 5 of 6 PASS not_null_mart_demand_hourly_ts_hour ................................ [[32mPASS[0m in 0.01s]
+[0m17:10:52.661589 [debug] [Thread-1 (]: Finished running node test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4
+[0m17:10:52.661741 [debug] [Thread-1 (]: Began running node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:10:52.661890 [info ] [Thread-1 (]: 6 of 6 START test unique_mart_demand_hourly_ts_hour ............................ [RUN]
+[0m17:10:52.662064 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.energy.not_null_mart_demand_hourly_ts_hour.c2e1681da4, now test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a)
+[0m17:10:52.662196 [debug] [Thread-1 (]: Began compiling node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:10:52.666061 [debug] [Thread-1 (]: Writing injected SQL for node "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:10:52.666328 [debug] [Thread-1 (]: Began executing node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:10:52.666994 [debug] [Thread-1 (]: Writing runtime sql for node "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:10:52.667247 [debug] [Thread-1 (]: Using duckdb connection "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:10:52.667388 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: BEGIN
+[0m17:10:52.667508 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:10:52.667711 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:10:52.667837 [debug] [Thread-1 (]: Using duckdb connection "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"
+[0m17:10:52.667976 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: /* {"app": "dbt", "dbt_version": "1.12.5", "profile_name": "energy", "target_name": "dev", "node_id": "test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    ts_hour as unique_field,
+    count(*) as n_records
+
+from "energy"."main"."mart_demand_hourly"
+where ts_hour is not null
+group by ts_hour
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m17:10:52.668999 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:10:52.669659 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: ROLLBACK
+[0m17:10:52.669866 [debug] [Thread-1 (]: On test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a: Close
+[0m17:10:52.670103 [info ] [Thread-1 (]: 6 of 6 PASS unique_mart_demand_hourly_ts_hour .................................. [[32mPASS[0m in 0.01s]
+[0m17:10:52.670323 [debug] [Thread-1 (]: Finished running node test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a
+[0m17:10:52.670782 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:10:52.670913 [debug] [MainThread]: On master: BEGIN
+[0m17:10:52.671019 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:10:52.671204 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:10:52.671309 [debug] [MainThread]: On master: COMMIT
+[0m17:10:52.671411 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:10:52.671513 [debug] [MainThread]: On master: COMMIT
+[0m17:10:52.671662 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:10:52.671767 [debug] [MainThread]: On master: Close
+[0m17:10:52.671915 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:10:52.672020 [debug] [MainThread]: Connection 'test.energy.unique_mart_demand_hourly_ts_hour.152b889b8a' was properly closed.
+[0m17:10:52.672177 [info ] [MainThread]: 
+[0m17:10:52.672319 [info ] [MainThread]: Finished running 3 table models, 3 data tests in 0 hours 0 minutes and 4.00 seconds (4.00s).
+[0m17:10:52.672857 [debug] [MainThread]: Command end result
+[0m17:10:52.688549 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/manifest.json
+[0m17:10:52.690130 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/semantic_manifest.json
+[0m17:10:52.691820 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/osi_document.json
+[0m17:10:52.695121 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/uthejalagani/Projects/irish-energy-demand-mlops/transforms/target/run_results.json
+[0m17:10:52.695261 [info ] [MainThread]: 
+[0m17:10:52.695415 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:10:52.695541 [info ] [MainThread]: 
+[0m17:10:52.695671 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=6
+[0m17:10:52.697610 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 4.782162, "process_in_blocks": "0", "process_kernel_time": 0.407851, "process_mem_max_rss": "205242368", "process_out_blocks": "0", "process_user_time": 1.743952}
+[0m17:10:52.697832 [debug] [MainThread]: Command `dbt build` succeeded at 17:10:52.697793 after 4.78 seconds
+[0m17:10:52.697994 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ab21d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfb4860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd7eb70>]}
+[0m17:10:52.698149 [debug] [MainThread]: Flushing usage events
+[0m17:10:53.083615 [debug] [MainThread]: An error was encountered while trying to flush usage events
