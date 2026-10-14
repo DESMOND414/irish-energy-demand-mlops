@@ -10,3 +10,4 @@ mlruns/
 target/
 dbt_packages/
 logs/data/features/
+mlflow.db

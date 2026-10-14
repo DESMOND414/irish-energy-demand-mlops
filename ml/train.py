@@ -1,0 +1,48 @@
+"""Train demand forecaster: seasonal-naive baseline vs XGBoost, tracked in MLflow + registry."""
+import numpy as np, pandas as pd
+import xgboost as xgb
+import mlflow, mlflow.xgboost
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+df = pd.read_parquet("data/features/feature_matrix.parquet").sort_values("ts_hour")
+TARGET = "demand_mw"
+FEATURES = [c for c in df.columns if c not in ["ts_hour", TARGET]]
+
+# --- Time-based split: last 30 days = test (the future we pretend not to know) ---
+cutoff = df["ts_hour"].max() - pd.Timedelta(days=30)
+train, test = df[df.ts_hour <= cutoff], df[df.ts_hour > cutoff]
+X_train, y_train = train[FEATURES], train[TARGET]
+X_test,  y_test  = test[FEATURES],  test[TARGET]
+print(f"train={len(train)}  test={len(test)}  features={len(FEATURES)}")
+
+def metrics(y, p):
+    mae  = mean_absolute_error(y, p)
+    rmse = mean_squared_error(y, p) ** 0.5
+    mape = (np.abs((y - p) / y)).mean() * 100
+    return {"mae": mae, "rmse": rmse, "mape": mape}
+
+mlflow.set_tracking_uri("sqlite:///mlflow.db")   # DB backend so the Model Registry works
+mlflow.set_experiment("irish-energy-demand")
+
+# --- Baseline: last week, same hour (seasonal naive) ---
+with mlflow.start_run(run_name="baseline_seasonal_naive"):
+    m = metrics(y_test, test["demand_lag_168h"])
+    mlflow.log_param("model", "seasonal_naive_168h")
+    mlflow.log_metrics(m)
+    print(f"baseline  MAE={m['mae']:.0f}  RMSE={m['rmse']:.0f}  MAPE={m['mape']:.2f}%")
+
+# --- XGBoost ---
+with mlflow.start_run(run_name="xgboost"):
+    params = dict(n_estimators=400, max_depth=6, learning_rate=0.05,
+                  subsample=0.9, colsample_bytree=0.9, random_state=42)
+    model = xgb.XGBRegressor(**params)
+    model.fit(X_train, y_train)
+    m = metrics(y_test, model.predict(X_test))
+    mlflow.log_params(params)
+    mlflow.log_metrics(m)
+    mlflow.xgboost.log_model(model, artifact_path="model",
+                             input_example=X_test.iloc[:3],
+                             registered_model_name="energy_demand_xgb")
+    print(f"xgboost   MAE={m['mae']:.0f}  RMSE={m['rmse']:.0f}  MAPE={m['mape']:.2f}%")
+
+print("\nDone. View runs with:  mlflow ui --backend-store-uri sqlite:///mlflow.db")
