@@ -11,3 +11,4 @@ target/
 dbt_packages/
 logs/data/features/
 mlflow.db
+models_store/

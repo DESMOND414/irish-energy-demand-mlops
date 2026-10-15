@@ -1,16 +1,14 @@
-"""FastAPI service: serves the registered XGBoost demand model from the MLflow registry."""
-import mlflow, mlflow.pyfunc, pandas as pd
+"""FastAPI service: serves the exported XGBoost demand model."""
+import os, mlflow, mlflow.pyfunc, pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-mlflow.set_tracking_uri("sqlite:///mlflow.db")
-MODEL_URI = "models:/energy_demand_xgb/latest"
-model = mlflow.pyfunc.load_model(MODEL_URI)
+MODEL_PATH = os.getenv("MODEL_PATH", "models_store")
+model = mlflow.pyfunc.load_model(MODEL_PATH)
 
 FEATURES = ["temperature_2m","wind_speed_10m","relative_humidity_2m","hour_of_day",
             "day_of_week","month","demand_lag_1h","demand_lag_24h","demand_lag_168h",
             "demand_roll_24h","demand_roll_168h","is_weekend","is_holiday"]
-# Columns the model expects as integers (matches the MLflow signature)
 INT_COLS = ["relative_humidity_2m","hour_of_day","day_of_week","month","is_weekend","is_holiday"]
 
 class Features(BaseModel):
@@ -37,6 +35,5 @@ def health():
 @app.post("/predict")
 def predict(f: Features):
     X = pd.DataFrame([f.model_dump()])[FEATURES]
-    X[INT_COLS] = X[INT_COLS].round().astype("int64")   # match the model's schema (int cols)
-    pred = float(model.predict(X)[0])
-    return {"predicted_demand_mw": round(pred, 1)}
+    X[INT_COLS] = X[INT_COLS].round().astype("int64")
+    return {"predicted_demand_mw": round(float(model.predict(X)[0]), 1)}
