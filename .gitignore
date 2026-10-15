@@ -12,3 +12,7 @@ dbt_packages/
 logs/data/features/
 mlflow.db
 models_store/
+
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
