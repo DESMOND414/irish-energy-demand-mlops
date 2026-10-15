@@ -15,3 +15,6 @@ mlflow.db
 infra/.terraform/
 infra/terraform.tfstate
 infra/terraform.tfstate.backup
+
+mlflow_airflow.db
+mlruns_airflow/

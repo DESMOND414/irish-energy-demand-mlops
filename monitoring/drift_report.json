@@ -1,0 +1,15 @@
+{
+  "psi": {
+    "demand_mw": 0.6877,
+    "temperature_2m": 4.3958,
+    "wind_speed_10m": 0.1447,
+    "demand_lag_24h": 0.639,
+    "demand_roll_168h": 10.6476
+  },
+  "drifted": [
+    "demand_mw",
+    "temperature_2m",
+    "demand_lag_24h",
+    "demand_roll_168h"
+  ]
+}

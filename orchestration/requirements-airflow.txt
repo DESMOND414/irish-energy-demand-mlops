@@ -1,0 +1,13 @@
+pandas
+pyarrow
+requests
+python-dotenv
+python-dateutil
+holidays
+scikit-learn
+xgboost
+mlflow
+great-expectations
+dbt-duckdb
+duckdb
+azure-storage-blob

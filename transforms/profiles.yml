@@ -3,9 +3,11 @@ energy:
   outputs:
     dev:
       type: duckdb
-      path: energy.duckdb          # local DuckDB file = the compute engine
+      path: energy.duckdb
       extensions:
-        - azure                    # lets DuckDB read az:// paths
+        - azure
+      settings:
+        azure_transport_option_type: 'curl'   # use libcurl -> finds system CA certs
       secrets:
         - type: azure
-          connection_string: "{{ env_var('AZURE_STORAGE_CONNECTION_STRING') }}"  # auth to your lake
+          connection_string: "{{ env_var('AZURE_STORAGE_CONNECTION_STRING') }}"
