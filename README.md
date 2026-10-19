@@ -2,7 +2,7 @@
 
 An end-to-end platform that forecasts **Republic of Ireland national electricity demand** (MW) from live grid + weather data — covering **data engineering, data science, and MLOps** in one repo.
 
-**Live API:** https://energy-demand-api.bluedesert-d99535e4.switzerlandnorth.azurecontainerapps.io
+**Live API — interactive demo:** https://energy-demand-api.bluedesert-d99535e4.switzerlandnorth.azurecontainerapps.io/docs
 (try `GET /health` or `POST /predict`; `/docs` for Swagger)
 
 ---
