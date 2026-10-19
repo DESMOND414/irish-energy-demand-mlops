@@ -3,6 +3,10 @@
 An end-to-end platform that forecasts **Republic of Ireland national electricity demand** (MW) from live grid + weather data — covering **data engineering, data science, and MLOps** in one repo.
 
 **Live API — interactive demo:** https://energy-demand-api.bluedesert-d99535e4.switzerlandnorth.azurecontainerapps.io/docs
+
+> ⏳ **Note:** the API scales to zero to save cost — the **first request may take ~20–30 seconds** to wake the container, then it responds instantly.
+
+![Live API demo — forecasting Irish electricity demand](assets/api-demo.png)
 (try `GET /health` or `POST /predict`; `/docs` for Swagger)
 
 ---
